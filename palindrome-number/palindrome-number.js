@@ -9,5 +9,5 @@ var isPalindrome = function(x) {
     return true
   if (array[0] !== array[array.length - 1])
     return false
-  return isPalindrome(array.slice(1, array.length - 1).join(''))
+  return isPalindrome(array.slice(1, -1).join(''))
 };
