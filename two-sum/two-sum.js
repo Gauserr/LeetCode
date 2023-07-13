@@ -4,12 +4,10 @@
  * @return {number[]}
  */
 var twoSum = function(nums, target) {
-   const complementStore = new Map(); 
+   const store = {};
    for (let i = 0; i < nums.length; i++){
-       if (complementStore.has(nums[i]))
-        return [complementStore.get(nums[i]), i]
-
-       const complement = target - nums[i];
-       complementStore.set(complement, i)
-   }
+     const comp = target - nums[i];
+     if (String(comp) in store) return [store[comp], i]
+     store[nums[i]] = i;
+   }   
 };
