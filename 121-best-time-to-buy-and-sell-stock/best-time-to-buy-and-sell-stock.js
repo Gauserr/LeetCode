@@ -11,7 +11,7 @@ var maxProfit = function(prices) {
        const profit = prices[j] - prices[i]
        if (profit > max) max = profit
      }
-     else {i = j}
+     else i = j
 
      j++
    } 
