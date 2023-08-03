@@ -8,12 +8,13 @@ var longestConsecutive = function(nums) {
    let currentLength = 1
    for (let num of numsSet){
      if (!numsSet.has(num - 1)){
-       let consecutive = true
-       while (consecutive === true){
-         if (numsSet.has(num + currentLength)){
-           currentLength++
-         }
-         else consecutive = false
+      //  let consecutive = true
+       while (numsSet.has(num + currentLength)){
+         currentLength++
+        //  if (numsSet.has(num + currentLength)){
+        //    currentLength++
+        //  }
+        //  else consecutive = false
        }
        longest = (longest > currentLength ? longest : currentLength)
        currentLength = 1
