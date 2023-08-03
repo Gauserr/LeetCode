@@ -23,6 +23,9 @@ var productExceptSelf = function(nums) {
 
   // return result
 
+  //Time O(n) Space O(n) because instructions state result array does not 
+  //count as extra memory
+
   const result = []
   let prefix = 1
   let postfix = 1
