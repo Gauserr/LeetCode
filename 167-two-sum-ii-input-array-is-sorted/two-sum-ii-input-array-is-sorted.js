@@ -10,7 +10,7 @@ var twoSum = function(numbers, target) {
         const sum = numbers[i] + numbers[j]
         console.log(sum)
         if (sum === target) return [i+1, j+1]
-        else if (sum < target) i++
-        else if (sum > target) j--
+        if (sum < target) i++
+        else j--
     }
 };
