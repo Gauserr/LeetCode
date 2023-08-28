@@ -3,24 +3,29 @@
  * @return {number[][]}
  */
 var threeSum = function(nums) {
-   const sorted = nums.sort((a, b) => a - b)
-   const result = []
-   let i, l, r
-   for (i=0;i < sorted.length; i++){
-     if (i > 0 && (sorted[i] === sorted[i - 1])) continue
-     l = i + 1
-     r = sorted.length - 1
-     while (l < r){
-       const threeSum = sorted[i] + sorted[l] + sorted[r]
-       if (threeSum < 0) l+=1
-       else if (threeSum > 0) r-=1
-       else {
-         result.push([sorted[i], sorted[l], sorted[r]])
-         l = l + 1
-         while (l < r && sorted[l] === sorted[l-1])
-          l = l + 1
-       }
-     }
-   }
-   return result
+  const sortedNums = nums.sort((a, b) => a-b)
+  const triplets = []
+  let current;
+  for (let i = 0; i <= nums.length - 3; i++) {
+    if (sortedNums[i] === current) continue
+    current = sortedNums[i]
+    let j = i+1
+    let k = sortedNums.length - 1
+    while (j < k) {
+      const sum = current + sortedNums[j] + sortedNums[k]
+      if (sum < 0) j++
+      else if (sum > 0) k--
+      else {
+        triplets.push([current, sortedNums[j], sortedNums[k]])
+        j++
+        k--
+        while (j < k){
+          if (sortedNums[j] === sortedNums[j-1]) j++
+          else if (sortedNums[k] === sortedNums[k+1]) k--
+          else break
+        }
+      }
+    }
+  }
+  return triplets
 };
