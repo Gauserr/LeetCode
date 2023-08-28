@@ -9,7 +9,6 @@ var encode = function(strs) {
   for (let string of strs){
     s += (string.length) + '#' + string
   }
-  console.log(s)
   return s
 };
 
