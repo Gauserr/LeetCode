@@ -9,7 +9,7 @@ var maxProfit = function(prices) {
    while (r < prices.length) {
        const profit = prices[r] - prices[l]
        if (profit > maxProfit) maxProfit = profit
-       else if (prices[r] < prices[l])
+       if (prices[r] < prices[l])
         l = r
 
         r++
